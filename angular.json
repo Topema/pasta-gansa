@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PastaGansa"
+    }
+  },
+  "defaultProject": "PastaGansa",
+  "cli": {
+    "analytics": false
+  }
 }
