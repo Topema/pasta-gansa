@@ -1,3 +1,8 @@
+$primary: #9CEAEC;
+$accent: #00848B;
+$darker: #008B69;
+
+
 *,*:before,*:after{
   box-sizing: border-box;
 }
@@ -34,4 +39,9 @@
   z-index: 2;
   padding: 20px;
   text-align: center;
+}
+
+.flex-element {
+  height: 100%;
+  width: 100%;
 }

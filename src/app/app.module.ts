@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { LoginComponent } from './login/login.component';
+import { CarteraAccionesComponent } from './cartera-acciones/cartera-acciones.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    CarteraAccionesComponent
   ],
   imports: [
     BrowserModule,

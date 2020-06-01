@@ -1,0 +1,18 @@
+@import '../app.component.scss';
+
+.login-icon {
+  color: $accent;
+  transform: scale(1.5)
+}
+
+.input-element {
+  width: 80%;
+  margin-top: 5px;
+  font-size: .8rem;
+}
+
+.input-container {
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 15px
+}

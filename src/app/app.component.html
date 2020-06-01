@@ -2,6 +2,6 @@
   <img src="../assets/background-images/LoginBackground.jpg" height="100%" width="100%">
 </div>
 
-<div id="router-container" [@container-animations]="(5==5) ? 'login-desktop' : 'login-desktop'">
-  <router-outlet></router-outlet>
+<div id="router-container" [@container-animations]="prepareRoute(outlet)" (@container-animations.done)="animDone($event)" (@container-animations.start)="animStart($event)">
+  <router-outlet #outlet="outlet"></router-outlet>
 </div>
