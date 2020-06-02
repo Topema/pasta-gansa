@@ -8,19 +8,23 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { LoginComponent } from './login/login.component';
 import { CarteraAccionesComponent } from './cartera-acciones/cartera-acciones.component';
+import { GlobalContainerComponent } from './global-container/global-container.component';
+import { TableSharesComponent } from './table-shares/table-shares.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CarteraAccionesComponent
+    CarteraAccionesComponent,
+    GlobalContainerComponent,
+    TableSharesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

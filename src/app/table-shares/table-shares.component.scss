@@ -1,0 +1,33 @@
+table {
+  width: 80%;
+  margin-top: 10px;
+  table-layout: fixed;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+th, td {
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+th > div {
+  text-align: center;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 80%;
+}
+
+.input-container {
+  background-color:white;
+  border-radius: 0;
+  border-style: solid;
+  border-color: #333333;
+  border-width: 0;
+  width: 40%
+}

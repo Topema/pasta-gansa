@@ -23,7 +23,7 @@ import {Router, RouterOutlet} from '@angular/router';
       ),
       state('miCartera',
         style({
-          height: '90%',
+          height: '95%',
           width: '90%',
         })),
       transition('login => miCartera', [
