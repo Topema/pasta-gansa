@@ -13,6 +13,7 @@ import { TableSharesComponent } from './table-shares/table-shares.component';
 import { BuySharesDialogComponent } from './buy-shares-dialog/buy-shares-dialog.component';
 import { SelectorComponent } from './selector/selector.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { SellSharesDialogComponent } from './sell-shares-dialog/sell-shares-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     GlobalContainerComponent,
     TableSharesComponent,
     BuySharesDialogComponent,
-    SelectorComponent
+    SelectorComponent,
+    SellSharesDialogComponent
   ],
   imports: [
     BrowserModule,

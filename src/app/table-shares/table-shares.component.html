@@ -3,7 +3,7 @@
     <div fxFlex="20" fxFlexOffset="10" style="height: 100%; width: 100%"  fxLayoutAlign="flex-start center">
       <!--button mat-raised-button color="warn" style="width: 65%"><mat-icon style="margin-bottom: 2px">add</mat-icon> | Comprar</button-->
       <button mat-mini-fab color="warn" style="margin-left: 10px; margin-bottom: 5px">
-        <mat-icon (click)="openDialog()" style=" margin-bottom: 2px; margin-right: 1px">add</mat-icon>
+        <mat-icon (click)="openBuyDialog()" style=" margin-bottom: 2px; margin-right: 1px">add</mat-icon>
       </button>
       <span style="color: white; margin-left: 10px;">Comprar Acciones</span>
     </div>
@@ -50,9 +50,8 @@
         <ng-container matColumnDef="panama">
           <th mat-header-cell *matHeaderCellDef  mat-sort-header></th>
           <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="warn" style="width: 65%"><mat-icon style="margin-bottom: 2px">attach_money</mat-icon> | Vender</button>
+            <button mat-raised-button color="warn" style="width: 65%" (click)="openSellDialog()"><mat-icon style="margin-bottom: 2px">attach_money</mat-icon> | Vender</button>
           </td>
-          <td mat-footer-cell *matFooterCellDef> 10000€ </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></tr>

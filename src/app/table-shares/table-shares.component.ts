@@ -4,6 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
 import {BuySharesDialogComponent} from '../buy-shares-dialog/buy-shares-dialog.component';
+import {SellSharesDialogComponent} from '../sell-shares-dialog/sell-shares-dialog.component';
 
 export interface PeriodicElement {
   name: string;
@@ -58,8 +59,20 @@ export class TableSharesComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog(): void {
+  openBuyDialog(): void {
     const dialogRef = this.dialog.open(BuySharesDialogComponent, {
+      width: '500px',
+      data: {id: '123', amount: '1000€'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
+  openSellDialog(): void {
+    const dialogRef = this.dialog.open(SellSharesDialogComponent, {
       width: '500px',
       data: {id: '123', amount: '1000€'}
     });
