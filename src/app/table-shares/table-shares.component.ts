@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {MatDialog} from '@angular/material/dialog';
+import {BuySharesDialogComponent} from '../buy-shares-dialog/buy-shares-dialog.component';
 
 export interface PeriodicElement {
   name: string;
@@ -9,6 +11,11 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
   panama: string;
+}
+
+export interface DialogData {
+  id: string;
+  amount: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -46,7 +53,22 @@ export class TableSharesComponent implements OnInit {
   // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() { }
+  animal: string;
+  name: string;
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(BuySharesDialogComponent, {
+      width: '500px',
+      data: {id: '123', amount: '1000€'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 
   ngOnInit(): void {
     // this.dataSource.paginator = this.paginator;

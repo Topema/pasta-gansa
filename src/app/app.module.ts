@@ -10,6 +10,9 @@ import { LoginComponent } from './login/login.component';
 import { CarteraAccionesComponent } from './cartera-acciones/cartera-acciones.component';
 import { GlobalContainerComponent } from './global-container/global-container.component';
 import { TableSharesComponent } from './table-shares/table-shares.component';
+import { BuySharesDialogComponent } from './buy-shares-dialog/buy-shares-dialog.component';
+import { SelectorComponent } from './selector/selector.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { TableSharesComponent } from './table-shares/table-shares.component';
     LoginComponent,
     CarteraAccionesComponent,
     GlobalContainerComponent,
-    TableSharesComponent
+    TableSharesComponent,
+    BuySharesDialogComponent,
+    SelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ import { TableSharesComponent } from './table-shares/table-shares.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

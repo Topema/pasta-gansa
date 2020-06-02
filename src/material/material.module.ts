@@ -6,9 +6,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     MatPaginatorModule,
     MatIconModule,
     MatSelectModule,
+    MatDialogModule,
+    MatToolbarModule,
   ],
   exports: [
     MatInputModule,
@@ -35,6 +39,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule,
+    MatToolbarModule,
   ]
 })
 export class MaterialModule { }

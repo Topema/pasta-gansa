@@ -1,0 +1,12 @@
+<div fxLayoutAlign="center center" style="height: 100%; width: 100%">
+  <mat-form-field style="width:80%">
+    <mat-select [formControl]="bankCtrl" placeholder="Empresa" #singleSelect>
+      <mat-option>
+        <ngx-mat-select-search [formControl]="bankFilterCtrl"></ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let bank of filteredBanks | async" [value]="bank">
+        {{bank.name}}S
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
