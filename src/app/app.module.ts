@@ -12,8 +12,9 @@ import { GlobalContainerComponent } from './global-container/global-container.co
 import { TableSharesComponent } from './table-shares/table-shares.component';
 import { BuySharesDialogComponent } from './buy-shares-dialog/buy-shares-dialog.component';
 import { SelectorComponent } from './selector/selector.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SellSharesDialogComponent } from './sell-shares-dialog/sell-shares-dialog.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SellSharesDialogComponent } from './sell-shares-dialog/sell-shares-dial
     TableSharesComponent,
     BuySharesDialogComponent,
     SelectorComponent,
-    SellSharesDialogComponent
+    SellSharesDialogComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,

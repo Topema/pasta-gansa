@@ -3,44 +3,42 @@
     <img src="../assets/logo/cover.png" height="100%">
   </div>
   <div class="flex-element" fxFlex="75" fxFlexOffset="10">
-    <form style="height:100%; width: 100%" onsubmit="return false">
-      <div class="flex-element" fxFlexOffset="5" fxLayout="column" style="height:100%; width: 100%">
-        <div fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
-          <div fxFlex="20">
-            <span class="material-icons login-icon">
-              account_circle
-            </span>
-          </div>
-          <div fxFlex="80" class="input-container">
-            <mat-form-field class="input-element">
-              <mat-label>Usuario: </mat-label>
-              <input matInput placeholder="Nombre de usuario">
-            </mat-form-field>
-          </div>
+    <div class="flex-element" fxFlexOffset="5" fxLayout="column" style="height:100%; width: 100%">
+      <div fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="20">
+          <span class="material-icons login-icon">
+            account_circle
+          </span>
         </div>
-        <div fxFlex="20" fxFlexOffset="10" fxLayout="row" fxLayoutAlign="center center">
-          <div fxFlex="20">
-            <span class="material-icons login-icon">
-              lock
-            </span>
-          </div>
-          <div fxFlex="80" class="input-container">
-            <mat-form-field class="input-element">
-              <mat-label>Contraseña: </mat-label>
-              <input matInput type="password" placeholder="Nombre de usuario">
-            </mat-form-field>
-          </div>
-        </div>
-        <div fxFlex="20" fxFlexOffset="10" fxLayoutAlign="center center">
-          <button mat-raised-button routerLink="/miCartera">Entrar</button>
-        </div>
-        <div fxFlex="20" fxFlexOffset="10" fxLayoutAlign="center center">
-          <h6 style="color:white">
-            Autor: Tomás Pérez Márquez <br>
-            NIA: 100418736
-          </h6>
+        <div fxFlex="80" class="input-container">
+          <mat-form-field class="input-element">
+            <mat-label>Usuario: </mat-label>
+            <input matInput placeholder="Nombre de usuario">
+          </mat-form-field>
         </div>
       </div>
-    </form>
+      <div fxFlex="20" fxFlexOffset="10" fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="20">
+          <span class="material-icons login-icon">
+            lock
+          </span>
+        </div>
+        <div fxFlex="80" class="input-container">
+          <mat-form-field class="input-element">
+            <mat-label>Contraseña: </mat-label>
+            <input matInput type="password" placeholder="Nombre de usuario">
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxFlex="20" fxFlexOffset="10" fxLayoutAlign="center center">
+        <button mat-raised-button routerLink="/miCartera">Entrar</button>
+      </div>
+      <div fxFlex="20" fxFlexOffset="10" fxLayoutAlign="center center">
+        <h6 style="color:white">
+          Autor: Tomás Pérez Márquez <br>
+          NIA: 100418736
+        </h6>
+      </div>
+    </div>
   </div>
 </div>
