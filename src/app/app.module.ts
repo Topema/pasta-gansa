@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +16,7 @@ import { BuySharesDialogComponent } from './buy-shares-dialog/buy-shares-dialog.
 import { SelectorComponent } from './selector/selector.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SellSharesDialogComponent } from './sell-shares-dialog/sell-shares-dialog.component';
-import { UserLoginComponent } from './user-login/user-login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,6 @@ import { UserLoginComponent } from './user-login/user-login.component';
     BuySharesDialogComponent,
     SelectorComponent,
     SellSharesDialogComponent,
-    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,9 @@ import { UserLoginComponent } from './user-login/user-login.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
+    HttpClientModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

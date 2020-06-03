@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LocalStorageService} from '../localStorage/local-storage.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-global-container',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GlobalContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private localStorageService: LocalStorageService, private router: Router) { }
 
   ngOnInit(): void {
+    if (this.localStorageService.getUserid() === ''){
+      this.router.navigate(['/login']);
+    }
+  }
+
+  logout(): void{
+    this.localStorageService.deleteCookie();
+    this.router.navigate(['/login']);
   }
 
 }

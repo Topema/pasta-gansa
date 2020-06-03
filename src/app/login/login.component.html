@@ -4,6 +4,7 @@
   </div>
   <div class="flex-element" fxFlex="75" fxFlexOffset="10">
     <div class="flex-element" fxFlexOffset="5" fxLayout="column" style="height:100%; width: 100%">
+      <h3 style="color:red; text-align: center; margin: 0" *ngIf="fail">Usuario o contraseña erroneos</h3>
       <div fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
         <div fxFlex="20">
           <span class="material-icons login-icon">
@@ -13,7 +14,7 @@
         <div fxFlex="80" class="input-container">
           <mat-form-field class="input-element">
             <mat-label>Usuario: </mat-label>
-            <input matInput placeholder="Nombre de usuario">
+            <input matInput placeholder="Nombre de usuario" (keyup)="userNameValueChanges($event)">
           </mat-form-field>
         </div>
       </div>
@@ -26,12 +27,12 @@
         <div fxFlex="80" class="input-container">
           <mat-form-field class="input-element">
             <mat-label>Contraseña: </mat-label>
-            <input matInput type="password" placeholder="Nombre de usuario">
+            <input matInput type="password" (keyup)="passwordValueChanges($event)" placeholder="Nombre de usuario">
           </mat-form-field>
         </div>
       </div>
       <div fxFlex="20" fxFlexOffset="10" fxLayoutAlign="center center">
-        <button mat-raised-button routerLink="/miCartera">Entrar</button>
+        <button mat-raised-button (click)="logUser()">Entrar</button>
       </div>
       <div fxFlex="20" fxFlexOffset="10" fxLayoutAlign="center center">
         <h6 style="color:white">

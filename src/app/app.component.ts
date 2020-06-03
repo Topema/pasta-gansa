@@ -8,6 +8,7 @@ import {
   // ...
 } from '@angular/animations';
 import {Router, RouterOutlet} from '@angular/router';
+import {LocalStorageService} from './localStorage/local-storage.service';
 
 @Component({
   selector: 'app-root',

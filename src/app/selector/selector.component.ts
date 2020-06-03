@@ -1,9 +1,15 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {Bank, BANKS} from '../demo-data';
 import {FormControl} from '@angular/forms';
 import {ReplaySubject, Subject} from 'rxjs';
 import {MatSelect} from '@angular/material/select';
 import {take, takeUntil} from 'rxjs/operators';
+import {FinnhubbClientService} from '../finnhubClientService/finnhubb-client.service';
+
+export interface Bank {
+  description: string;
+  symbol: string;
+  displaySymbol: string;
+}
 
 @Component({
   selector: 'app-selector',
@@ -13,7 +19,7 @@ import {take, takeUntil} from 'rxjs/operators';
 export class SelectorComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /** list of banks */
-  protected banks: Bank[] = BANKS;
+  protected banks: Bank[];
 
   /** control for the selected bank */
   public bankCtrl: FormControl = new FormControl();
@@ -30,9 +36,13 @@ export class SelectorComponent implements OnInit, AfterViewInit, OnDestroy {
   protected _onDestroy = new Subject<void>();
 
 
-  constructor() { }
+  constructor(private finnhubClientService: FinnhubbClientService ) { }
 
   ngOnInit() {
+    this.finnhubClientService.getAllCompanySymbols()
+      .subscribe((data: any) => {
+        this.banks = data;
+
     // set initial selection
     this.bankCtrl.setValue(this.banks[10]);
 
@@ -44,6 +54,7 @@ export class SelectorComponent implements OnInit, AfterViewInit, OnDestroy {
       .pipe(takeUntil(this._onDestroy))
       .subscribe(() => {
         this.filterBanks();
+      });
       });
   }
 
@@ -68,7 +79,7 @@ export class SelectorComponent implements OnInit, AfterViewInit, OnDestroy {
         // the form control (i.e. _initializeSelection())
         // this needs to be done after the filteredBanks are loaded initially
         // and after the mat-option elements are available
-        this.singleSelect.compareWith = (a: Bank, b: Bank) => a && b && a.id === b.id;
+        this.singleSelect.compareWith = (a: Bank, b: Bank) => a && b && a.symbol === b.symbol;
       });
   }
 
@@ -86,7 +97,7 @@ export class SelectorComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     // filter the banks
     this.filteredBanks.next(
-      this.banks.filter(bank => bank.name.toLowerCase().indexOf(search) > -1)
+      this.banks.filter(bank => bank.description.toLowerCase().indexOf(search) > -1)
     );
   }
 

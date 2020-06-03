@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: 'finaldepi.appspot.com',
     messagingSenderId: '804867034420',
     appId: '1:804867034420:web:e531f55d57b2853c286961'
-  }
+  },
+  finnhubToken: 'bram8g7rh5r8sefqv380'
 };
 
 /*
