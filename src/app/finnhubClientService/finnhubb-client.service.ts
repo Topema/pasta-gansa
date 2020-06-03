@@ -19,10 +19,10 @@ export class FinnhubbClientService {
   }
 
   getCompanySharesValue(symbol: string){
-    return this.http.get('https://finnhub.io/api/v1/quote?symbol=' + symbol + '&token=' + this.token);
+    return this.http.get('https://finnhub.io/api/v1/quote?symbol=' + symbol.toUpperCase() + '&token=' + this.token);
   }
 
   getCompanyInfo(symbol: string){
-    return this.http.get('https://finnhub.io/api/v1/stock/profile?symbol=' + symbol + '&token=' + this.token);
+    return this.http.get('https://finnhub.io/api/v1/stock/profile2?symbol=' + symbol.toUpperCase() + '&token=' + this.token);
   }
 }

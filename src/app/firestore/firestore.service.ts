@@ -14,8 +14,16 @@ export class FirestoreService {
     return this.firestore.collection('users').add(data);
   }
 
+  public getUser(documentId: string) {
+    return this.firestore.collection('users').doc(documentId).snapshotChanges();
+  }
+
   public getUsers() {
     return this.firestore.collection('users').snapshotChanges();
+  }
+
+  public updateUser(documentId: string, data: any) {
+    return this.firestore.collection('users').doc(documentId).set(data);
   }
 
 }

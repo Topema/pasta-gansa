@@ -18,6 +18,5 @@ export class LocalStorageService {
 
   public deleteCookie() {
     this.cookieService.delete('userId');
-    console.log(this.cookieService.get('userId'));
   }
 }

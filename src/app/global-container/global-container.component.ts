@@ -12,7 +12,7 @@ export class GlobalContainerComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.localStorageService.getUserid() === ''){
+    if (!this.localStorageService.getUserid()){
       this.router.navigate(['/login']);
     }
   }

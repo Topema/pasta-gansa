@@ -1,41 +1,46 @@
 <h1 mat-dialog-title style="border-bottom-width: 1px; border-bottom-style:solid; border-bottom-color: #333333">Compra de acciones</h1>
 <div mat-dialog-content>
   <div fxLayout="column" fxLayoutAlign="center center" style="height: 100%; width: 100%">
-    <div style="border-radius: 15px; width: 100%; border-width: 2px; margin-bottom: 10px; border-style: solid; border-color: yellowgreen; padding:10px" fxLayout="row" fxLayoutAlign="center center">
+    <div *ngIf="companyValues" style="border-radius: 15px; width: 100%; border-width: 2px; margin-bottom: 10px; border-style: solid; border-color: yellowgreen; padding:10px  " fxLayout="row" fxLayoutAlign="center center">
       <div fxFlex="50" style="height:100%; width:100%" fxLayout="column" fxLayoutAlign="center center">
-        <h4>Precio actual: 15€</h4>
-        <h4>Valor máximo: 15€</h4>
-        <h4>Valor mínimo: 15€</h4>
+        <h4>Cotización: {{companyValues.c}}€</h4>
+        <h4>Valor máximo: {{companyValues.h}}€</h4>
+        <h4>Valor mínimo: {{companyValues.l}}€</h4>
       </div>
       <div fxFlex="50" style="height:100%; width:100%" fxLayout="column" fxLayoutAlign="center center">
         <h4>Acciones en poder: 0</h4>
-        <h4>Último cierre: 15€</h4>
-        <h4>Apertura: 15€</h4>
+        <h4>Último cierre: {{companyValues.pc}}€</h4>
+        <h4>Apertura: {{companyValues.o}}€</h4>
       </div>
     </div>
-    <img src="../../assets/logo/profile.png" height="50px" style="text-align: center">
-    <app-selector style="width:100%"></app-selector>
+    <img *ngIf="companyInfo" src="{{companyInfo.logo}}" height="50px" style="text-align: center">
+    <h2 *ngIf="companyInfo">{{companyInfo.name}}</h2>
+    <mat-form-field style="width:80%">
+      <mat-label>Symbol de compañía</mat-label>
+      <input matInput (keyup)="searchSymbol($event)">
+    </mat-form-field>
     <div fxLayout="row" fxLayoutAlign="center center" style="height:100%; width:84%">
       <div fxFlex="50" fxLayoutAlign="center center">
         <mat-form-field style="width:90%">
           <mat-label>Fecha de operación</mat-label>
-          <input matInput type="date">
+          <input matInput type="date" (change)="setDate($event)">
         </mat-form-field>
       </div>
       <div fxFlex="50" fxLayoutAlign="center center">
         <mat-form-field style="width:90%">
           <mat-label>Nº de acciones</mat-label>
-          <input matInput type="number">
+          <input matInput type="number" (change)="setShareNumber($event)" (keyup)="setShareNumber($event)">
         </mat-form-field>
       </div>
     </div>
     <div fxLayoutAlign="flex-end center" style="height: 100%; width: 80%">
-      <h3>Importe Total: 1500€</h3>
+      <h3 *ngIf="totalCost>0">Importe Total: {{totalCost.toFixed(2)}}€</h3>
+      <h3 *ngIf="totalCost==0">Por favor rellene correctamente todos los campos</h3>
     </div>
   </div>
 </div>
 
 <div mat-dialog-actions fxLayoutAlign="flex-end center" style="border-top-width: 1px; border-top-style:solid; border-top-color: #333333">
   <button mat-button (click)="onNoClick()">Cerrar</button>
-  <button mat-button color="WARN" cdkFocusInitial>Comprar</button>
+  <button mat-button color="WARN" cdkFocusInitial (click)="purchaseShares()">Comprar</button>
 </div>

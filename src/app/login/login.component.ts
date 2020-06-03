@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.fail = false;
-    if (this.localStorageService.getUserid() !== ''){
+    if (this.localStorageService.getUserid()){
       this.router.navigate(['/miCartera']);
     }
   }
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.firestoreService.getUsers().subscribe((userSnapshots) => {
       userSnapshots.forEach((user: any) => {
         const userInfo = {
-          id: user.payload.doc.data().id,
+          id: user.payload.doc.id,
           userName: user.payload.doc.data().userName,
           password: user.payload.doc.data().password,
         };
