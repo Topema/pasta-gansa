@@ -8,9 +8,9 @@
         <h4>Valor mínimo: {{companyValues.l}}€</h4>
       </div>
       <div fxFlex="50" style="height:100%; width:100%" fxLayout="column" fxLayoutAlign="center center">
-        <h4>Acciones en poder: 0</h4>
         <h4>Último cierre: {{companyValues.pc}}€</h4>
         <h4>Apertura: {{companyValues.o}}€</h4>
+        <h4>.</h4>
       </div>
     </div>
     <img *ngIf="companyInfo" src="{{companyInfo.logo}}" height="50px" style="text-align: center">
@@ -21,10 +21,6 @@
           <mat-label>Symbol de compañía</mat-label>
           <input matInput (keyup)="searchSymbol($event)">
         </mat-form-field>
-        <!--mat-form-field style="width:90%">
-          <mat-label>Fecha de operación</mat-label>
-          <input matInput type="date" (change)="setDate($event)">
-        </mat-form-field-->
       </div>
       <div fxFlex="50" fxLayoutAlign="center center">
         <mat-form-field style="width:90%">

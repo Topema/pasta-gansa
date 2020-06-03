@@ -38,7 +38,6 @@ export class BuySharesDialogComponent implements OnInit {
   searchSymbol(event: any) {
     this.symbol = event.target.value;
     const s = this.funnhubService.getCompanyInfo(this.symbol).subscribe((data: any) => {
-      console.log('ok')
       if (data === {}) {
         this.companyInfo = undefined;
       } else {
@@ -48,7 +47,6 @@ export class BuySharesDialogComponent implements OnInit {
     });
 
     const s1 = this.funnhubService.getCompanySharesValue(event.target.value).subscribe((data: any) => {
-      console.log('ok')
       if (data === {}) {
         this.companyValues = undefined;
         this.refreshTotalCost();

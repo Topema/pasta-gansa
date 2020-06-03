@@ -1,30 +1,25 @@
 <div style="height:100%; width:100%" fxLayout="column" fxLayoutAlign="center center">
-  <div fxFlex="5" style="width: 100%; height:100%" fxLayout="row" fxLayoutAlign="center center">
-    <div fxFlex="5" style="width: 100%; height: 100%" fxLayoutAlign="center center">
+  <div fxFlex="7" style="width: 100%; height:100%" fxLayout="row" fxLayoutAlign="flex-start center">
+    <div fxFlex="5" style="width: 100%; height: 100%;" fxLayoutAlign="center center">
       <img src="../../assets/logo/profile.png" height="150%">
     </div>
-    <div fxFlex="60" fxFlexOffset="15" style="width: 100%; height: 100%; background-color: green; border-radius: 10px">
-      <!--div fxFlex="50" fxLayoutAlign="center center" style="width: 100%; height: 100%"-->
-        <!--button mat-raised-button color="primary" style="width: 100%"><mat-icon style="margin-bottom: 2px">account_balance_wallet</mat-icon> | Mi cartera</button-->
-        <h1 style=" color: white">Mi cartera</h1>
-      <!--/div-->
-      <!--div fxFlex="50" fxLayoutAlign="center center" style="width: 100%; height: 100%">
-        <button mat-raised-button color="accent" style="width: 50%"><mat-icon style="margin-bottom: 2px">store</mat-icon> | Comprar</button>
-      </div-->
+    <div fxFlex="60" fxFlexOffset="15" style="width: 100%; height: 100%; background-color: #FF4081; border-radius: 10px">
+      <h1 style=" color: white; margin:0; margin-top: 7px">Mi cartera</h1>
     </div>
-    <div fxFlex="5" fxFlexOffset="15" style="width: 100%; height: 100%;" fxLayoutAlign="center center">
+    <div fxFlex="5" fxFlexOffset="13.5" style="width: 100%; height: 100%;" fxLayoutAlign="center center">
+      <h4 style="margin-top: 15px;margin-left:10px; color: white">Logout</h4>
       <button mat-icon-button style="transform: scale(1.4); color: white" (click)="logout()">
         <mat-icon>logout</mat-icon>
       </button>
     </div>
   </div>
-  <div fxFlex="90" style="width: 100%; height:100%">
+  <div fxFlex="88" style="width: 100%; height:100%">
     <ng-content></ng-content>
   </div>
   <!--div fxFlex="7" fxLayoutAlign="center center" style="width:100%; height:100%;">
     <h1 style="color: white">Rentabilidad total: 10000€</h1>
   </div-->
   <div fxFlex="5" fxLayoutAlign="center center" fxLayout="column">
-    <img src="../../assets/logo/cover.png" height="100%">
+    <img src="../../assets/logo/uc3m.jpg" height="100%">
   </div>
 </div>

@@ -3,31 +3,39 @@
   <div fxLayout="column" fxLayoutAlign="center center" style="height: 100%; width: 100%">
     <div style="border-radius: 15px; width: 100%; border-width: 2px; margin-bottom: 10px; border-style: solid; border-color: yellowgreen; padding:10px" fxLayout="row" fxLayoutAlign="center center">
       <div fxFlex="50" style="height:100%; width:100%" fxLayout="column" fxLayoutAlign="center center">
-        <h4>Precio actual: 15€</h4>
-        <h4>Valor máximo: 15€</h4>
-        <h4>Valor mínimo: 15€</h4>
+        <h4>Precio actual: {{data.cot}}€</h4>
+        <h4>Valor máximo: {{data.maxValue}}€</h4>
+        <h4>Valor mínimo: {{data.minValue}}€</h4>
       </div>
       <div fxFlex="50" style="height:100%; width:100%" fxLayout="column" fxLayoutAlign="center center">
-        <h4>Acciones en poder: 0</h4>
-        <h4>Último cierre: 15€</h4>
-        <h4>Apertura: 15€</h4>
+        <h4>Acciones en poder: {{data.nshares}}</h4>
+        <h4>Último cierre: {{data.lastClosed}}</h4>
+        <h4>Apertura: {{data.opening}}€</h4>
       </div>
     </div>
-    <img src="../../assets/logo/profile.png" height="50px" style="text-align: center">
-    <h2>Nombre de empresa</h2>
+    <img src="{{data.logo}}" height="50px" style="text-align: center">
+    <h2>{{data.name}}</h2>
     <div fxLayout="row" fxLayoutAlign="center center" style="height:100%; width:84%">
-      <mat-form-field style="width:90%">
-        <mat-label>Fecha de operación</mat-label>
-        <input matInput type="date">
-      </mat-form-field>
+      <div fxFlex="50" fxLayoutAlign="center center">
+        <mat-form-field style="width:90%">
+          <mat-label>Fecha de operación</mat-label>
+          <input matInput type="date" (change)="setDate($event)">
+        </mat-form-field>
+      </div>
+      <div fxFlex="50" fxLayoutAlign="center center">
+        <mat-form-field style="width:90%">
+          <mat-label>Precio de venta</mat-label>
+          <input matInput type="number" (change)="setSellPrice($event)" (keyup)="setSellPrice($event)">
+        </mat-form-field>
+      </div>
     </div>
     <div fxLayoutAlign="flex-end center" style="height: 100%; width: 80%">
-      <h3>Importe Total: 1500€</h3>
+      <h3>Precio de venta total actual: {{(data.nshares * data.cot).toFixed(2)}}€</h3>
     </div>
   </div>
 </div>
 
 <div mat-dialog-actions fxLayoutAlign="flex-end center" style="border-top-width: 1px; border-top-style:solid; border-top-color: #333333">
   <button mat-button (click)="onNoClick()">Cerrar</button>
-  <button mat-button color="WARN" cdkFocusInitial>Vender</button>
+  <button mat-button color="WARN" cdkFocusInitial (click)="purchaseShares()">Vender</button>
 </div>
