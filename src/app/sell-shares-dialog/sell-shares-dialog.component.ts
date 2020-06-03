@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {DialogData} from '../table-shares/table-shares.component';
 
 @Component({
   selector: 'app-sell-shares-dialog',
@@ -10,8 +9,7 @@ import {DialogData} from '../table-shares/table-shares.component';
 export class SellSharesDialogComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<SellSharesDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    public dialogRef: MatDialogRef<SellSharesDialogComponent>) {}
 
   onNoClick(): void {
     this.dialogRef.close();

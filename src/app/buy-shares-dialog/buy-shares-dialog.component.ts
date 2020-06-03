@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {DialogData} from '../table-shares/table-shares.component';
 import {FinnhubbClientService} from '../finnhubClientService/finnhubb-client.service';
 import {FirestoreService} from '../firestore/firestore.service';
 import {LocalStorageService} from '../localStorage/local-storage.service';
@@ -22,7 +21,6 @@ export class BuySharesDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<BuySharesDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private funnhubService: FinnhubbClientService,
     private firestoreService: FirestoreService,
     private localStorageService: LocalStorageService,
