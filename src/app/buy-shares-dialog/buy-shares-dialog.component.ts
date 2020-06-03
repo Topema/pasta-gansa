@@ -37,15 +37,18 @@ export class BuySharesDialogComponent implements OnInit {
 
   searchSymbol(event: any) {
     this.symbol = event.target.value;
-    this.funnhubService.getCompanyInfo(this.symbol).subscribe((data: any) => {
+    const s = this.funnhubService.getCompanyInfo(this.symbol).subscribe((data: any) => {
+      console.log('ok')
       if (data === {}) {
         this.companyInfo = undefined;
       } else {
         this.companyInfo = data;
       }
+      s.unsubscribe();
     });
 
-    this.funnhubService.getCompanySharesValue(event.target.value).subscribe((data: any) => {
+    const s1 = this.funnhubService.getCompanySharesValue(event.target.value).subscribe((data: any) => {
+      console.log('ok')
       if (data === {}) {
         this.companyValues = undefined;
         this.refreshTotalCost();
@@ -53,6 +56,7 @@ export class BuySharesDialogComponent implements OnInit {
         this.companyValues = data;
         this.refreshTotalCost();
       }
+      s1.unsubscribe();
     });
   }
 
@@ -74,14 +78,14 @@ export class BuySharesDialogComponent implements OnInit {
   }
 
   purchaseShares() {
-    const date = new Date(this.purchaseDate);
-    const currentDate = new Date().getTime();
+    // const date = new Date(this.purchaseDate);
+    const currentDate = new Date();
     if (this.companyInfo === undefined) {
       alert('Debes introducir un symbol de compañía válido');
     } else if (this.shareNumber <= 0 || this.shareNumber === undefined) {
       alert('Debes introducir un número de acciones de compañía a comprar');
-    } else if (isNaN(date.getTime()) || date.getTime() < currentDate) {
-      alert('Debes introducir una fecha válida y posterior a la actual');
+      // } else if (isNaN(date.getTime()) || date.getTime() < currentDate) {
+      //  alert('Debes introducir una fecha válida y posterior a la actual');
     } else {
       const confirmed = confirm('Se ejecutará la compra, no hay pasarela de pago así que invita la casa');
       if (confirmed) {
@@ -91,8 +95,8 @@ export class BuySharesDialogComponent implements OnInit {
           this.userInfo.ownedShares.forEach((ownedShare) => {
             if (ownedShare.symbol === this.symbol) {
               ownedShare.numberOfShares += Number(this.shareNumber);
-              ownedShare.purchaseDate = date;
-              ownedShare.sellDate = date;
+              ownedShare.purchaseDate = currentDate;
+              ownedShare.sellDate = currentDate;
               isNew = false;
               return;
             }
@@ -100,12 +104,12 @@ export class BuySharesDialogComponent implements OnInit {
           if (isNew) {
             this.userInfo.ownedShares.push({
               numberOfShares: this.shareNumber,
-              purchaseDate: date,
-              sellDate: date,
-              symbol: this.symbol
+              purchaseDate: currentDate,
+              sellDate: currentDate,
+              symbol: this.symbol,
+              purchaseCost: this.totalCost,
             });
           }
-          console.log(user.payload.data(), this.userInfo);
           this.firestoreService.updateUser(this.userId, this.userInfo);
           editSubscribe.unsubscribe();
         });
